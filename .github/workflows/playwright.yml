@@ -26,7 +26,7 @@ jobs:
           run: npm i -D @playwright/test allure-playwright
         
         - name: Reports Generate
-          run: npx allure generate ./allure-results --clean    
+          run: allure generate my-allure-results -o allure-report --clean   
           
         - uses: actions/upload-artifact@master
           with:
