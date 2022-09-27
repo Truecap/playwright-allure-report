@@ -19,8 +19,8 @@ jobs:
         - name: Install
           run: npm install
         - name: Test
-          # run: npx playwright test --project=chromium --reporter=line,allure-playwright
-          run: npm run chromium:headless
+          run: npx playwright test --project=chromium --reporter=line,allure-playwright
+          # run: npm run chromium:headless
 
         - name: Install allure
           run: npm i -D @playwright/test allure-playwright
