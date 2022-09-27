@@ -1,0 +1,31 @@
+{
+  "name": "playwright-allure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "chromium:ui": "npx playwright test --project=chromium --headed",
+    "chromium:headless": "npx playwright test --project=chromium",
+    "firefox:ui": "npx playwright test --project=firefox --headed",
+    "firefox:headless": "npx playwright test --project=firefox",
+    "firefox:login:ui": "npx playwright test Login.spec.js --headed --project=firefox",
+    "firefox:login:headless": "npx playwright test Login.spec.js --project=firefox",
+    "login:ui": "npx playwright test Login.spec.js --headed",
+    "smsapi:ui": "npx playwright test FindPriceSmsApiUa.spec.js --headed",
+    "smsapi:headless": "npx playwright test FindPriceSmsApiUa.spec.js",
+    "clickability:ui": "npx playwright test VerifyClickabilityBtns.spec.js --headed",
+    "homepagebtn:ui": "npx playwright test VerifyHomePageBtn.spec.js --headed",
+    "calculator:ui": "npx playwright test VerifySavingCalculator.spec.js --headed",
+    "search:ui": "npx playwright test VerifySearchInput.spec.js --headed",
+    "tabs:ui": "npx playwright test VerifyTabsOnHomePage.spec.js --headed",
+    "report:generate": "allure generate allure-results -o allure-report --clean",
+    "report:open": "allure open allure-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.26.0",
+    "allure-playwright": "^2.0.0-beta.19"
+  }
+}
