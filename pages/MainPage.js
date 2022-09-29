@@ -1,5 +1,3 @@
-// const { MessagingPage } = require('../pages/MessagingPage.js');
-// const messagingPage = new MessagingPage(page);
 const { expect } = require("@playwright/test");
 const { timeout } = require("../playwright.config");
 const email = "testsne13@gmail.com";
@@ -58,40 +56,21 @@ exports.MainPage = class MainPage {
   }
 
   async logInInvalidEmail() {
-    ;
     await this.logInBtn.click();
-    // await this.page.waitForLoadState()
     await this.emailInput.fill(invalidEmail);
     await this.passwordInput.fill(password);
-    // await this.submitBtn.waitForSelector({state: 'attached'})
-    // await this.submitBtn.waitFor({state:'visible'});
-    // const element = await this.page.$('button[class*="LoginForm__LoginButton"]');
-    // await element.waitForElementState("enabled", "stable");
-    await this.submitBtn.waitFor('attached', {timeout: 10000});
+    await this.submitBtn.waitFor("attached", { timeout: 10000 });
     await this.submitBtn.click();
-    await this.page.waitForLoadState()
-    //await this.page.waitForLoadState('domcontentloaded');
-    // await this.page.waitForLoadState();
+    await this.page.waitForLoadState();
   }
-  
+
   async loginInvalidPassword() {
-   
     await this.logInBtn.click();
-    // await this.page.waitForLoadState();
-    await this.emailInput.waitFor('detached', {timeout: 10000});
+    await this.emailInput.waitFor("detached", { timeout: 10000 });
     await this.emailInput.fill(email);
     await this.passwordInput.fill(invalidPassword);
-    // await expect(this.passwordInput).toHaveValue(invalidPassword);
-    // await this.submitBtn.waitFor();
-    // await this.page.waitForLoadState('domcontentloaded' );
-    // await this.submitBtn.waitForSelector({state: 'attached'})
-    // const element = await this.page.$('button[class*="LoginForm__LoginButton"]');
-    // await element.waitForElementState("enabled", "stable");
-    await this.submitBtn.waitFor('detached', {timeout: 10000});
+    await this.submitBtn.waitFor("detached", { timeout: 10000 });
     await this.submitBtn.click();
-    // await this.page.waitForLoadState('domcontentloaded');
-    // await this.page.waitForLoadState('load')
-    // await this.page.waitForLoadState();
   }
   async validateLoginError() {
     await expect(this.errorMessage).toBeVisible();
@@ -100,11 +79,9 @@ exports.MainPage = class MainPage {
     await this.pricingTab.hover();
   }
   async openMessagingPage() {
-    // const messagingPage = new MessagingPage(this.page);
     await this.pricingTab.hover();
     await this.smsApiPricingDrpDwn.click();
     await expect(this.page).toHaveURL("https://telnyx.com/pricing/messaging");
-    // await messagingPage.currencyDrpDwn.waitFor();
   }
   async openSolutionsDrpDwn() {
     await this.solutionsTab.hover();
